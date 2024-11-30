@@ -1,8 +1,8 @@
-# Guidance on Scaling OpenAI Applications with Azure Services
+# Guidance on Scaling Azure OpenAI Applications with Azure Services
 
 ## Introduction
 
-This guidance document contains best practices for scaling OpenAI applications within Azure, detailing resource organization, quota management, rate limiting, and the strategic use of Provisioned Throughput Units (PTUs) and Azure API Management (APIM) for efficient load balancing.
+This guidance document contains best practices for scaling Azure OpenAI applications, detailing resource organization, quota management, rate limiting, and the strategic use of Provisioned Throughput Units (PTUs) and Azure API Management (APIM) for efficient load balancing.
 
 ## Best Practices for Azure OpenAI Resources
 
@@ -17,10 +17,10 @@ This guidance document contains best practices for scaling OpenAI applications w
 ## Quotas and Rate Limiting
 
 ### Tokens
-- Tokens are basic text units processed by OpenAI models. Efficient token management is crucial for cost and load balancing.
+- Tokens are basic text units processed by Azure OpenAI models. Efficient token management is crucial for cost and load balancing.
 
 ### Quotas
-- OpenAI sets API quotas based on subscription plans, dictating API usage within specific time frames.
+- Microsoft sets API quotas based on Azure subscription plans, dictating API usage within specific time frames.
 - Quotas are per model, per region, and per subscription.
 - Proactively monitor quotas to prevent unexpected service disruptions.
 - **Quotas do not guarantee capacity**, and traffic may be throttled if the service is overloaded. 
@@ -32,7 +32,7 @@ This guidance document contains best practices for scaling OpenAI applications w
 - Implement backoff strategies to handle rate limit errors effectively.
 
 ### PTUs
-- Utilize PTUs for baseline usage of OpenAI workloads to guarantee consistent throughput.
+- Utilize PTUs for baseline usage of Azure OpenAI workloads to guarantee consistent throughput.
 - PAYG deployments should handle traffic that exceeds the PTU allocation.
 
 ## Load Balancing with Azure API Management (APIM)
@@ -41,13 +41,13 @@ This guidance document contains best practices for scaling OpenAI applications w
 - Policies within APIM can be used to manage traffic, secure APIs and enforce usage quotas.
 - **Load Balancing** within APIM distributes traffic evenly, ensuring no single instance is overwhelmed.
 - **Circuit Breaker** policies in APIM prevent cascading failures and improve system resilience.
-- **Smart Load Balancing** with APIM ensures prioritized traffic distribution across multiple OpenAI resources.
+- **Smart Load Balancing** with APIM ensures prioritized traffic distribution across multiple Azure OpenAI resources.
 
 ## Security and High Availability
 
 - Use Azure API Management to route traffic, ensuring centralized security and compliance.
-- Implement private endpoints to secure OpenAI resources and prevent unauthorized access.
-- Leverage Managed Identity to secure access to OpenAI resources and other Azure services.
+- Implement private endpoints to secure Azure OpenAI resources and prevent unauthorized access.
+- Leverage Managed Identity to secure access to Azure OpenAI resources and other Azure services.
 
 ## Addressing Special Cases and Limitations
 
@@ -55,7 +55,7 @@ This guidance document contains best practices for scaling OpenAI applications w
 
 ## Conclusion
 
-This guidance outlines a strategy for leveraging Azure OpenAI resources at an enterprise level. By centralizing OpenAI resources and adopting smart load balancing with APIM, organizations can maximize their investment in OpenAI, ensuring scalability, cost-effectiveness, and performance across a wide range of applications and use cases. 
+This guidance outlines a strategy for leveraging Azure OpenAI resources at an enterprise level. By centralizing Azure OpenAI resources and adopting smart load balancing with APIM, organizations can maximize their investment in Azure OpenAI, ensuring scalability, cost-effectiveness, and performance across a wide range of applications and use cases. 
 
 ## Additional Resources
 
@@ -63,4 +63,4 @@ This guidance outlines a strategy for leveraging Azure OpenAI resources at an en
 - [Smart load balancing with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
 - [Using Azure API Management Circuit Breaker and Load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 
-For more detailed information on OpenAI's capabilities, tokens, quotas, rate limits, and PTUs, visit the [Azure OpenAI documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/).
+For more detailed information on Azure OpenAI Service capabilities, tokens, quotas, rate limits, and PTUs, visit the [Azure OpenAI documentation](https://docs.microsoft.com/azure/cognitive-services/openai/).
